@@ -1,4 +1,12 @@
-var config;
+var config = {
+	queuePrefix: process.env.AWS_QUEUE_PREFIX,
+	region: process.env.AWS_DEFAULT_REGION,
+	accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+	secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
+};
+if (!config.queuePrefix || !config.region || !config.accessKeyId || !config.secretAccessKey) {
+	throw new Error('No aws env. variable config found, see the local-dev repo for details on setting up env. variables.');
+}
 
 // Require libraries.
 var aws = require( "aws-sdk" );
@@ -9,7 +17,6 @@ function getQueueUrl(queueUrl) {
 }
 
 function createSQS(queueUrl) {
-	if (!config) { throw new Error('no config found'); }
 	// Create an instance of our SQS Client.
 	var sqs = new aws.SQS({
 		region: config.region,
