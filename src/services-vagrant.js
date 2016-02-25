@@ -4,5 +4,6 @@ module.exports = {
 	"socket": "http://socket-dev.packs.com",
 	"matchmaking": "http://matchmaker-dev.packs.com",
 	"game": "http://game-dev.packs.com",
+	"cards": "http://cards-dev.packs.com",
 	"mongo": "mongodb://localhost/packs"
 };
