@@ -12,6 +12,18 @@ function checkAuth(token, callback) {
 	});
 }
 
+function getCards(callback) {
+	var reqUrl = services.cards + '/cards';
+	request.get(reqUrl, {}, function(err, response, body){
+		if (response.statusCode === 200) {
+			callback(null, JSON.parse(body));
+		} else {
+			callback(response.statusCode, body);
+		}
+	});
+}
+
 module.exports = {
-	checkAuth: checkAuth
+	checkAuth: checkAuth,
+	getCards: getCards
 };
