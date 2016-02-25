@@ -15,6 +15,7 @@ function checkAuth(token, callback) {
 function getCards(callback) {
 	var reqUrl = services.cards + '/cards';
 	request.get(reqUrl, {}, function(err, response, body){
+		if (err || !response) { return callback(err); }
 		if (response.statusCode === 200) {
 			callback(null, JSON.parse(body));
 		} else {
