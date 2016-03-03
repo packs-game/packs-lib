@@ -5,5 +5,6 @@ module.exports = {
 	"matchmaking": "http://localhost:3002", //http://matchmaker-dev.packs.com
 	"game": "http://localhost:3005", //http://game-dev.packs.com
 	"cards": "http://localhost:3007", //http://cards-dev.packs.com
+	"items": "http://localhost:3008", //http://cards-dev.packs.com
 	"mongo": "mongodb://localhost/packs"
 };

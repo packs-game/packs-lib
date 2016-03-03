@@ -5,5 +5,6 @@ module.exports = {
 	"matchmaking": "http://matchmaker-dev.packs.com",
 	"game": "http://game-dev.packs.com",
 	"cards": "http://cards-dev.packs.com",
+	"items": "http://items-dev.packs.com",
 	"mongo": "mongodb://localhost/packs"
 };
