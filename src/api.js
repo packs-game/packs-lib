@@ -24,7 +24,20 @@ function getCards(callback) {
 	});
 }
 
+function openItem(id, token, itemName, callback) {
+	var reqUrl = services.items + '/open';
+	request.get(reqUrl, {id: id, token: token, toOpen: itemName}, function(err, response, body){
+		if (err || !response) { return callback(err); }
+		if (response.statusCode === 200) {
+			callback(null, JSON.parse(body));
+		} else {
+			callback(response.statusCode, body);
+		}
+	});
+}
+
 module.exports = {
 	checkAuth: checkAuth,
-	getCards: getCards
+	getCards: getCards,
+	openItem: openItem
 };
